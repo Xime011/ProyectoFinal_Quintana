@@ -2,15 +2,13 @@
 
 1️⃣ Introducción
 
-El presente informe describe el desarrollo de un framework de automatización de pruebas E2E para la aplicación OrangeHRM, utilizando Java, Selenium WebDriver, Cucumber y TestNG, aplicando el enfoque BDD y el patrón Page Object Model.
+Este proyecto
+describe el desarrollo de un framework de automatización de pruebas E2E para la aplicación OrangeHRM, utilizando Java, Selenium WebDriver, Cucumber y TestNG, aplicando el enfoque BDD y el patrón Page Object Model.
 
 2️⃣ Alcance de la automatización
-Validar flujos críticos del sistema como:
-•	Login
-•	Navegación
-•	Búsqueda de empleados
-•	Logout
-•	Flujo completo End-to-End
+
+Validar flujo crítico del sistema como:  
+**Login ➝ Dashboard ➝ Búsqueda de empleados ➝ Logout**
 ________________________________________
 3️⃣ Herramientas y tecnologías utilizadas
 
@@ -57,9 +55,9 @@ ________________________________________
 •	Cada página del sistema tiene su propia clase 
 •	Los locators y métodos están encapsulados
 •	Los Steps solo orquestan el flujo, no contienen lógica de UI
-________________________________________
+
 🔹 BasePage
-BasePage centraliza:
+Centraliza:
 •	WebDriver
 •	WebDriverWait
 •	Métodos reutilizables:
