@@ -17,13 +17,17 @@ public class FlujoPrincipalSteps {
     @Given("estoy en la página de OrangeHRM")
     public void estoy_en_la_pagina_de_orangehrm() {
         loginPage.goTo();
-        Assert.assertTrue(loginPage.isOnLoginPage());
+        Assert.assertTrue(loginPage.isOnLoginPage(),
+                "No se cargó la página de login de OrangeHRM"
+        );
     }
 
     @Given("inicio sesión con credenciales válidas")
     public void inicio_sesion_con_credenciales_validas() {
         loginPage.loginAs("Admin", "admin123");
-        Assert.assertTrue(dashboardPage.isOnDashboard());
+        Assert.assertTrue(dashboardPage.isOnDashboard(),
+                "No se pudo iniciar sesión correctamente"
+        );
     }
 
     // ---------- WHEN ----------
@@ -45,7 +49,9 @@ public class FlujoPrincipalSteps {
     @When("navego al módulo PIM")
     public void navego_al_modulo_pim() {
         dashboardPage.goToPIM();
-        Assert.assertTrue(pimPage.isOnPIMPage());
+        Assert.assertTrue(pimPage.isOnPIMPage(),
+                "No se navegó correctamente al módulo PIM"
+        );
     }
 
     @When("busco al empleado con nombre {string}")
@@ -61,9 +67,13 @@ public class FlujoPrincipalSteps {
     // ---------- THEN ----------
     @Then("debería ver la página Dashboard")
     public void deberia_ver_la_pagina_dashboard() {
-        Assert.assertTrue(dashboardPage.isOnDashboard());
+        Assert.assertTrue(dashboardPage.isOnDashboard(),
+                "No se muestra el Dashboard después del login"
+        );
         String header = dashboardPage.getHeaderText();
-        Assert.assertTrue(header.contains("Dashboard"));
+        Assert.assertTrue(header.contains("Dashboard"),
+                "El encabezado del Dashboard no es el esperado"
+        );
         Assert.assertFalse(loginPage.isErrorDisplayed(),
                 "Se mostró un error de login inesperado");
     }
@@ -75,6 +85,8 @@ public class FlujoPrincipalSteps {
 
     @Then("debería ver la página de login")
     public void deberia_ver_la_pagina_de_login() {
-        Assert.assertTrue(loginPage.isOnLoginPage());
+        Assert.assertTrue(loginPage.isOnLoginPage(),
+                "No se volvió a la página de login después del logout"
+        );
     }
 }
